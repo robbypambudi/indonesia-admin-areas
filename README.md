@@ -54,7 +54,7 @@ The data is available in CSV format. The columns are as follows:
 
 ## Summary of Data
 
-- Total rovinces: 38
+- Total provinces: 38
 - Total regencies: 514
 - Total districts: 7,277
 - Total villages: 83,731
