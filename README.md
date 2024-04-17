@@ -2,7 +2,7 @@
 
 ## Description
 
-This repository contains the administrative areas of Indonesia in CSV format. The data is extracted from the [KPU](https://pemilu2024.kpu.go.id/) website.
+This repository contains the administrative areas of Indonesia in CSV format. The data is extracted from the [General Election Commission (KPU) - Pemilu 2024 (https://pemilu2024.kpu.go.id/)](https://pemilu2024.kpu.go.id/) website on **17th April 2024**.
 
 ## Data
 
