@@ -11,16 +11,16 @@ all_province_url = "http://sirekap-obj-data.kpu.go.id/wilayah/pemilu/ppwp/0.json
 requests.packages.urllib3.disable_warnings()
 
 def clear_file():
-    with open("data/provinces.csv", "w") as f:
+    with open("csv/provinces.csv", "w") as f:
         f.write("")
 
-    with open("data/regencies.csv", "w") as f:
+    with open("csv/regencies.csv", "w") as f:
         f.write("")
     
-    with open("data/districts.csv", "w") as f:
+    with open("csv/districts.csv", "w") as f:
         f.write("")
     
-    with open("data/villages.csv", "w") as f:
+    with open("csv/villages.csv", "w") as f:
         f.write("")
 
 def get_district(province_code, regency_code):
@@ -93,12 +93,12 @@ def main():
     province_code = dict(sorted(province_code.items()))
 
     # # Write to file
-    with open("data/provinces.csv", "a") as f:
+    with open("csv/provinces.csv", "a") as f:
         for code, name in province_code.items():
             f.write(f"{code},{name}\n")
 
     # Get regencies
-    with open("data/regencies.csv", "a") as f:
+    with open("csv/regencies.csv", "a") as f:
         for code in province_code.keys():
             
             # Await for prevent rate limit
@@ -108,9 +108,9 @@ def main():
             
 
     # Get districts
-    with open("data/districts.csv", "a") as f:
+    with open("csv/districts.csv", "a") as f:
         # Read from regencies.csv
-        with open("data/regencies.csv", "r") as regency_file:
+        with open("csv/regencies.csv", "r") as regency_file:
             regency_code = regency_file.readlines()
             
             for regency in regency_code:           
@@ -122,12 +122,13 @@ def main():
         regency_file.close()
 
     # Get villages
-    with open("data/villages.csv", "a") as f:
+    with open("csv/villages.csv", "a") as f:
         # Read from districts.csv
-        with open("data/districts.csv", "r") as district_file:
+        with open("csv/districts.csv", "r") as district_file:
             district_code = district_file.readlines()
             for district in district_code:
                 district_code, regency_code, _ = district.split(",")
+                print(district_code, regency_code)
                 
                 # Province code is 2 first character of regency code
                 province_code = regency_code[:2]
